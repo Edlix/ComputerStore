@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Komputer store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <style>
+        .btn-default{
+            background-color:#90EE90;
+            border-color: #2F3E48;
+
+        }
+        .btn-success{
+            background-color: #483D8B;
+            border-color: #2F3E48;
+            color: white;
+            margin-left: 20px;
+        }
+        .btn-primary{
+            background-color: #FFFACD;
+            border-color: #2F3E48;
+            color: black;
+            margin-left:20px;
+        }
+        .btn-buynow{
+            background-color: #E0FFFF;
+            border-color: #2F3E48;
+            color: black;
+        }
+        .header{
+            background-color: black;
+            color: white;
+            height: 100%;
+        }
+        .title{
+            margin-left: 220px;
+            font-family: sans-serif;
+        }
+        .theBank{
+            margin-top: 60px;
+        }
+        .img-fluid{
+            height:230px;
+            width: 230px;
+        }
+        .theBuyLaptops{
+            margin: 60px;
+        }
+        .name{
+            font-size: 20px;
+            font-weight: bold;
+            margin-top:20px;
+            margin-bottom:30px;
+        }
+        .price{
+            font-size:20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom:45px;
+            margin-top:30px;
+        }
+        .paykr{
+            margin-top:15px;
+            margin-bottom:70px;
+        }
+        .balanceMove{
+            margin-top:15px;
+            margin-bottom:15px;
+        }
+        .loanMove{
+            margin-bottom:30px;
+        }
+        .bank{
+            background-color: #faf9f5;
+        }
+        .work{
+            background-color: #faf9f5;
+        }
+        .lby{
+            background-color: #faf9f5;
+        }
+        .theBuyLaptops{
+            background-color: #faf9f5;
+        }
+        .bankwork{
+            margin-top:115px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row header">
+        <h1 class ="title">Komputer store</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row theBank">
+        <div class="col-sm-4">
+            <div class ="bank p-3 border">
+                <h3>Joe Banker</h3>
+                <div class="row balanceMove">
+                    <div class="balance col-sm-6">Balance:</div>
+                    <div id ="balance" class="balNumb col-sm-6">0 kr.</div>
+                </div>
+                <div class="row loanMove">
+                    <div class="loan col-sm-6">Loan:</div>
+                    <div id = "loanTotal" class="loanTotal col-sm-6">0 kr</div>
+                </div>
+                <div class="row">
+                    <button id = "repayLoan" type="button" class="btn btn-default btn-block" style="visibility: hidden">Repay loan</button>
+                    <button id ="loan" type="button" class="btn btn-default btn-block">Get a loan</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="work p-3 border">
+                <h3>Work</h3>
+                <div class="row paykr">
+                    <div class="pay col-sm-6">Pay:</div>
+                    <div id = "pay" class="pay col-sm-6">0 kr</div>
+                </div>
+                <div class="bankwork row">
+                    <button id = "bank" type="button" class="btn btn-primary col-sm-5">Bank</button>
+                    <button id = "work" type="button" class="btn btn-success col-sm-5">Work</button>
+                </div>
+            </div>
+        </div>
+        <div class="lby col-sm-4 p-3 border">
+            <div class="laptops">
+                <h3>Laptops</h3>
+                <select name = "computers" id = "computers"></select>
+                <ul id = "laptopsList">
+                </ul>
+                <div id="feature"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row theBuyLaptops p-3 border">
+        <div class="col-md-4">
+            <div class="buyLaptops">
+                <div class="img">
+                    <img id="image" onerror="this.src='https://emdplugins.com/media/marketplacedb_5defb59312058_404_pagenot_found.png'" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="nameDesc">
+                <div id ="name" class="name">Name</div>
+                <div id ="description" class="desc">Description</div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="priceLaptop">
+                <div id="price" class="price"> NOK </div>
+                <button id = "buyLaptop" type="button" class="btn btn-buynow btn-block">Buy now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src = "index.js"></script>
+
+</body>
+</html>
