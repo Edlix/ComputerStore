@@ -22,15 +22,22 @@ let loanTotal = 0.0;
 let price = 0.0;
 let hasLoan = false;
 let priceOfComputer = 0.0;
+
+/*Fetches the computers from a API
+ */
+
 fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
     .then(response => response.json())
     .then(data => computers = data)
     .then(computers => addComputersToStore(computers));
 
+/* Adds computers to the store
+ */
 const addComputersToStore = (computers) => {
     computers.forEach(x => addComputerToStore(x));
 }
-
+/* Adds one computer to the store
+ */
 const addComputerToStore = (computer) => {
     const computerElement = document.createElement("option");
     computerElement.value = computer.id;
@@ -38,6 +45,8 @@ const addComputerToStore = (computer) => {
     computersElement.appendChild(computerElement);
 }
 
+/*Handles the computer change and retrive the relevant information
+ */
 const handleComputerChange = e => {
     const selectedComputer = computers[e.target.selectedIndex]
     priceOfComputer = selectedComputer.price;
@@ -51,11 +60,15 @@ const handleComputerChange = e => {
 
 }
 
-
+/* Handles the work button - increases by 100 each tick.
+ */
 const handleWorkClick = () => {
     pay = pay + 100;
     payElement.innerText = pay;
 }
+
+/* Handle the bank elements.
+ */
 const handleBankClick = () => {
     if (hasLoan === true) {
         const loanPercentage = (10 / 100) * loanTotal;
@@ -73,6 +86,8 @@ const handleBankClick = () => {
     }
 
 }
+/* Handle the loan element - Loan button
+ */
 const handleLoanClick = () => {
     const loanAmount = prompt("Enter amount to loan:");
     if (loanAmount > balance * 2) {
@@ -89,6 +104,8 @@ const handleLoanClick = () => {
         showRepay();
     }
 }
+/* Handle the pack back loan - check if balance is > than loan.
+ */
 const handlePayBackLoan = () => {
     console.log("asdas")
     if (balance < loanTotal) {
@@ -104,6 +121,8 @@ const handlePayBackLoan = () => {
         hideRepay();
     }
 }
+/* Handles the buy laptop element - Check if there is enough money
+ */
 const handleBuyLaptop = () => {
     if (priceOfComputer <= balance) {
         balance = balance - priceOfComputer;
@@ -114,7 +133,8 @@ const handleBuyLaptop = () => {
     }
 }
 
-
+/* Handles all the event listeners - 5 click and 1 change
+ */
 computersElement.addEventListener("change", handleComputerChange);
 workElement.addEventListener("click", handleWorkClick);
 bankElement.addEventListener("click", handleBankClick)
